@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1 class="panel-title" style="font-size: 2em;">Trips</h1>
+        </div>
+        <div class="col-xs-6 text-right">
+          <a href="#" class="btn btn-success">New Trip</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <app-trip-item
+            *ngFor="let trip of trips"
+            [trip]="trip"
+            (tripSelected)="onTripSelected(trip)">
+          </app-trip-item>
+        </div>
+      </div>
+    </div>
+  </div>

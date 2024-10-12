@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-trip-list (selectedTripEvent)="selectedTrip = $event"></app-trip-list>
+    </div>
+    <div class="col-md-8">
+        <app-trip-detail
+        *ngIf="selectedTrip"
+        [trip]="selectedTrip">
+        </app-trip-detail>
+    </div>
+</div>
