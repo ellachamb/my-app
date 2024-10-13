@@ -1,0 +1,10 @@
+<div class="panel-default">
+<div *ngIf="trip" style="padding-left: 3rem;" class="calendar"> 
+    <div *ngFor="let date of getDatesInRange(trip.startDate, trip.endDate)">
+      <h4>{{ date | date:'fullDate' }}</h4>
+    </div>
+</div>
+<div class="experience">
+    <p>Experience Details</p>
+</div>
+</div>

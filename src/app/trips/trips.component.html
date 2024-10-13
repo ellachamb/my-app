@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <app-trip-list (selectedTripEvent)="selectedTrip = $event"></app-trip-list>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <app-trip-detail
         *ngIf="selectedTrip"
         [trip]="selectedTrip">

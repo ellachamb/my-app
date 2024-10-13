@@ -9,9 +9,11 @@
             <a href="#" class="btn btn-danger btn-sm">Delete</a>
         </div>
     </div>
-    <div class="panel-body">
-      <p><strong>Destination:</strong> {{ trip.destination }}</p>
-      <p><strong>Date:</strong> {{ trip.date }}</p>
-    </div>
+    <app-detail-nav (selectedFeatureEvent)="switchView($event)"></app-detail-nav>
+    <app-itinerary 
+      *ngIf="selectedFeature === 'calendar'" 
+      [trip]="trip">
+      </app-itinerary> 
+    <app-todo *ngIf="selectedFeature === 'todo'" style="width: 100%"></app-todo>
   </div>
   

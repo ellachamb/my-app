@@ -7,7 +7,7 @@
           <div style= "color: white;">
             <h3 style="padding-bottom: 5rem; text-shadow: 1px 1px 2px rgba(33, 33, 33, 0.8)">{{ trip.destination }}</h3>
             <div class="pull-right" style="background-color: #39618E; padding: .6rem; opacity: 90%;">
-                <p class="list-group-item-text">{{ trip.date }}</p>
+                <p class="list-group-item-text">{{ trip.startDate | date:'MM/dd/yy' }} - {{ trip.endDate | date:'MM/dd/yy' }}</p>
             </div>
           </div>
 </a>

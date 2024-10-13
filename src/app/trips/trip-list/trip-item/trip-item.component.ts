@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Trip } from '../trip.model';
+import { Trip } from '../../trip.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
