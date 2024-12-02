@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Todo } from './todo.model';
+import { Component, Input } from '@angular/core';
+import { Task } from '../../trip.model'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -11,23 +11,28 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
- todos: Todo[] = []; 
- newTask: string = '';
- 
- addTask() {
-  if (this.newTask.trim() !== '') {
-    const newTodo = new Todo(this.todos.length + 1, this.newTask, false);
-    this.todos.push(newTodo);
-    this.newTask = ''; 
+  @Input() tripTasks: Task[] = [];  
+  newTask: string = '';
+  
+  addTask() {
+    if (this.newTask.trim() !== '') {
+      const newTask = new Task(
+        (this.tripTasks.length + 1).toString(), 
+        this.newTask,
+        false
+      );
+      this.tripTasks.push(newTask);  // Add new task to the task list
+      this.newTask = '';  // Clear input field
+    }
   }
-}
 
-  deleteTask(todo: Todo) {
-  this.todos = this.todos.filter(t => t.id !== todo.id);
-}
+  // Delete a task from the current trip
+  deleteTask(task: Task) {
+    this.tripTasks = this.tripTasks.filter(t => t.id !== task.id);
+  }
 
-  toggleComplete(todo: Todo) {
-  todo.completed = !todo.completed;
-}
-
+  // Toggle the completion status of a task
+  toggleComplete(task: Task) {
+    task.completed = !task.completed;
+  }
 }

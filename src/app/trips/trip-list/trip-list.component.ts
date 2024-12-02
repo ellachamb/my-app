@@ -1,23 +1,52 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { TripItemComponent } from "./trip-item/trip-item.component";
+import { Component, Output, EventEmitter, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Trip } from '../trip.model';
+import { TripsService } from '../trips.service';
+import { NgForm, FormsModule } from '@angular/forms';
+import { TripItemComponent } from './trip-item/trip-item.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trip-list',
   standalone: true,
-  imports: [TripItemComponent, CommonModule],
   templateUrl: './trip-list.component.html',
-  styleUrl: './trip-list.component.css'
+  styleUrls: ['./trip-list.component.css'],
+  imports: [TripItemComponent, FormsModule, CommonModule],
 })
-export class TripListComponent {
+export class TripListComponent implements OnInit {
   @Output() selectedTripEvent = new EventEmitter<Trip>();
-  trips: Trip[] = [
-    new Trip("1", "New York City", new Date("2024-10-19"), new Date("2024-10-22"), "nyc.jpg"),
-    new Trip("2", "Paris", new Date("2025-06-10"), new Date("2025-06-24"), "paris.jpg"),
-  ];
+  trips: Trip[] = [];
 
-  onTripSelected(trip: Trip) { 
-    this.selectedTripEvent.emit(trip); 
+  constructor(private tripsService: TripsService) {}
+
+  ngOnInit(): void {
+    this.trips = this.tripsService.getTrips();
+  }
+
+  onTripSelected(trip: Trip): void {
+    this.selectedTripEvent.emit(trip);
+  }
+
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      const newTrip: Trip = {
+        id: this.generateId(),
+        destination: form.value.destination,
+        startDate: new Date(form.value.startDate),
+        endDate: new Date(form.value.endDate),
+        imageUrl: form.value.imageUrl,
+        tasks: [],
+        itinerary: []
+      };
+      this.trips.push(newTrip);
+      this.tripsService.addTrip(newTrip);
+
+      document.getElementById('closeModalButton')?.click();
+
+      form.reset();
+    }
+  }
+
+  private generateId(): string {
+    return (this.trips.length + 1).toString();
   }
 }

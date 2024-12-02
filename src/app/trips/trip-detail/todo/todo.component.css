@@ -1,14 +1,14 @@
 .input-group {
     display: flex;
-    max-width: 100%; /* Keeps input and button inline and responsive */
+    max-width: 100%;
   }
   
   .list-group {
     width: 100%;
-    max-width: 600px; /* Limits the task list to a manageable width */
+    max-width: 600px; 
   }
   
   .completed {
-    text-decoration: line-through; /* Example styling for completed tasks */
+    text-decoration: line-through; 
   }
   

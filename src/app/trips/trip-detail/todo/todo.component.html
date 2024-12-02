@@ -1,19 +1,16 @@
 <div class="container" style="width: 100%;">
-    <!-- Input field and add button on the same line -->
-    <div class="input-group mb-3" style="width: 100%">
-      <input [(ngModel)]="newTask" type="text" class="form-control" placeholder="New Task">
-      <button class="btn btn-primary" (click)="addTask()" style="margin-left: 1rem">Add</button>
-    </div>           
-  
-    <!-- List of tasks -->
-    <ul class="list-group" style="width: 100%; padding-top: 1rem; ">
-      <li *ngFor="let todo of todos" class="list-group-item d-flex justify-content-between align-items-center">
-        <span [ngClass]="{'completed': todo.completed}">
-          <input type="checkbox" (change)="toggleComplete(todo)" [checked]="todo.completed">
-          {{ todo.task }}
-        </span>
-        <i class="bi bi-x pull-right text-danger" (click)="deleteTask(todo)" style="cursor: pointer; font-size: 2rem;"></i>
-      </li>
-    </ul>
+  <div class="input-group mb-3" style="width: 100%">
+    <input [(ngModel)]="newTask" type="text" class="form-control" placeholder="New Task">
+    <button class="btn btn-primary" (click)="addTask()" style="margin-left: 1rem">Add</button>
   </div>
-  
+
+  <ul class="list-group" style="width: 100%; padding-top: 1rem;">
+    <li *ngFor="let task of tripTasks" class="list-group-item d-flex justify-content-between align-items-center">
+      <span [ngClass]="{'completed': task.completed}">
+        <input type="checkbox" (change)="toggleComplete(task)" [checked]="task.completed">
+        {{ task.title }}
+      </span>
+      <i class="bi bi-x pull-right text-danger" (click)="deleteTask(task)" style="cursor: pointer; font-size: 2rem;"></i>
+    </li>
+  </ul>
+</div>

@@ -1,10 +1,105 @@
-<div class="panel-default">
-<div *ngIf="trip" style="padding-left: 3rem;" class="calendar"> 
-    <div *ngFor="let date of getDatesInRange(trip.startDate, trip.endDate)">
-      <h4>{{ date | date:'fullDate' }}</h4>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        <button class="btn btn-success" data-toggle="modal" data-target="#addItineraryModal">
+          Add Itinerary Item
+        </button>
+      </div>
     </div>
+    <div *ngFor="let date of getDatesInRange(trip.startDate, trip.endDate)">
+      <h4>{{ date | date: 'fullDate' }}</h4>
+      <div *ngFor="let item of getItemsForDate(date)">
+        <!-- Click to show item details -->
+         <p><i>{{ item.startTime }} - {{ item.endTime }}</i></p>
+        <p>{{ item.title }} <a (click)="showItemDetails(item)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+          <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1"/>
+        </svg></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="row" *ngIf="selectedItem">
+      <div class="col-xs-12">
+        <h5><strong>{{ selectedItem.title }}</strong></h5>
+        <p><strong>Dates:</strong> {{ selectedItem.dateStart | date:'MM/dd/yy' }} - {{ selectedItem.dateEnd | date:'MM/dd/yy' }}</p>
+        <p><strong>Times:</strong> {{ selectedItem.startTime }} - {{ selectedItem.endTime }}</p>
+        <p><strong>Details:</strong> {{ selectedItem.description }}</p>
+        <p><strong>Location:</strong> {{ selectedItem.location }}</p>
+        <p><strong>Links: </strong> <a [href]="selectedItem.link" target="_blank">{{ selectedItem.link }}</a></p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="experience">
-    <p>Experience Details</p>
-</div>
+
+
+
+<!-- Modal for adding a new itinerary item -->
+<div id="addItineraryModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addItineraryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addItineraryModalLabel">Add Itinerary Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="newItem.title" name="title" type="text" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dateStart">Start Date</label>
+            <input [(ngModel)]="newItem.dateStart" name="dateStart" type="date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dateEnd">End Date</label>
+            <input [(ngModel)]="newItem.dateEnd" name="dateEnd" type="date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <input [(ngModel)]="newItem.startTime" name="startTime" type="time" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="endTime">End Time</label>
+            <input [(ngModel)]="newItem.endTime" name="endTime" type="time" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Details</label>
+            <textarea [(ngModel)]="newItem.description" name="description" class="form-control" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input [(ngModel)]="newItem.location" name="location" type="text" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="link">Links</label>
+            <input [(ngModel)]="newItem.link" name="link" type="url" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="closeModalButton2"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          style="display: none;">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,23 +1,96 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="row">
-        <!-- <div class="col-xs-6">
-          <h1 class="panel-title" style="font-size: 2em;">Trips</h1>
-        </div> -->
-        <div class="col-xs-6 text-left">
-          <a href="#" class="btn btn-success">New Trip</a>
-        </div>
-      </div>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-xs-12">
-          <app-trip-item
-            *ngFor="let trip of trips"
-            [trip]="trip"
-            (tripSelected)="onTripSelected(trip)">
-          </app-trip-item>
-        </div>
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        <button class="btn btn-success" data-toggle="modal" data-target="#addTripModal">
+          New Trip
+        </button>
       </div>
     </div>
   </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <app-trip-item
+          *ngFor="let trip of trips"
+          [trip]="trip"
+          (click)="onTripSelected(trip)">
+        </app-trip-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="addTripModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addTripModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addTripModalLabel">Add a New Trip</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #tripForm="ngForm" (ngSubmit)="onSubmit(tripForm)">
+          <div class="form-group">
+            <label for="destination">Destination</label>
+            <input
+              type="text"
+              id="destination"
+              class="form-control"
+              required
+              name="destination"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input
+              type="date"
+              id="startDate"
+              class="form-control"
+              required
+              name="startDate"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input
+              type="date"
+              id="endDate"
+              class="form-control"
+              required
+              name="endDate"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input
+              type="text"
+              id="imageUrl"
+              class="form-control"
+              required
+              name="imageUrl"
+              ngModel
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Add Trip</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="closeModalButton"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          style="display: none;">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
