@@ -1,6 +1,7 @@
 .navbar {
     padding: 0 20px;
-    background-color: rgb(240, 235, 229); 
+    background-color: rgb(233, 234, 240); 
+    border: none; 
   }
   
   .navbar-brand img {

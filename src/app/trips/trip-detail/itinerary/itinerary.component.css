@@ -6,3 +6,40 @@
 a {
     cursor: pointer;
 }
+
+.datefull {
+    background-color: #39618E; 
+    color: white;
+    padding: 1rem; 
+    opacity: 90%;
+    border-radius: 5px;
+}
+
+.category-display {
+    padding: 1rem; 
+    color: white; 
+    border-radius: 5px;
+    border: 1px solid white; 
+}
+
+.pull-right {
+    margin-top: -5rem; 
+}
+
+svg:hover {
+    fill: #39618E; 
+    transition: fill 0.3s ease;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.category2 {
+    padding-bottom: .1rem; 
+    padding-top: 1rem; 
+    color: white; 
+    font-weight: bold;
+    text-align: center; 
+    border-radius: 5px; 
+}

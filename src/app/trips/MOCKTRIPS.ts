@@ -19,6 +19,7 @@ export const MOCKTRIPS: Trip[] = [
         "Visit Central Park",  
         "10:00 AM",
         "10:30 AM",
+        "Other",
         "Explore the famous park in the heart of Manhattan.", 
         "Central Park, Manhattan, NY", 
         "https://www.centralparknyc.org/" 
@@ -30,6 +31,7 @@ export const MOCKTRIPS: Trip[] = [
         "Empire State Building Tour",
         "2:00 PM",
         "3:00 PM",
+        "Activity",
         "A guided tour to the top of the Empire State Building for stunning views of NYC.",
         "Empire State Building, NYC", 
         "https://www.esbnyc.com/"
@@ -54,6 +56,7 @@ export const MOCKTRIPS: Trip[] = [
         "Louvre Museum Visit",
         "9:00 AM",
         "12:00 PM",
+        "Activity",
         "A tour through the world-famous museum, home to the Mona Lisa.",
         "Louvre Museum, Paris", 
         "https://www.louvre.fr/en"
@@ -65,6 +68,7 @@ export const MOCKTRIPS: Trip[] = [
         "Seine River Cruise",
         "7:00 PM",
         "8:30 PM",
+        "Activity",
         "A relaxing boat cruise along the Seine River, offering picturesque views of Paris landmarks.",
         "Seine River, Paris", 
         "https://www.bateauxparisiens.com/"

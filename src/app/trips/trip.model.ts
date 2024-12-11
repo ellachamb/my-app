@@ -26,6 +26,7 @@ export class ItineraryItem {
     public title: string,
     public startTime: string, 
     public endTime: string,
+    public category: string,
     public description: string, 
     public location: string,
     public link: string

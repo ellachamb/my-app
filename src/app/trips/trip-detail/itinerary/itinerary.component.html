@@ -1,20 +1,27 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div class="panel panel-default" style="border: none; background-color: rgb(233, 234, 240); ">
+  <div class="text-left" style="padding: 0 2rem;">
     <div class="row">
-      <div class="col-xs-6 text-left">
+      <div class="col-xs-6">
         <button class="btn btn-success" data-toggle="modal" data-target="#addItineraryModal">
           Add Itinerary Item
         </button>
       </div>
     </div>
     <div *ngFor="let date of getDatesInRange(trip.startDate, trip.endDate)">
-      <h4>{{ date | date: 'fullDate' }}</h4>
+      <h4 class="datefull">{{ date | date: 'fullDate' }}</h4>
       <div *ngFor="let item of getItemsForDate(date)">
         <!-- Click to show item details -->
+          <div [ngStyle]="{'background-color': getCategoryColor(item.category)}" class="category-display">
+            <p class="uppercase">{{ item.category }}</p>   
          <p><i>{{ item.startTime }} - {{ item.endTime }}</i></p>
-        <p>{{ item.title }} <a (click)="showItemDetails(item)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
-          <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1"/>
-        </svg></a></p>
+          <p>{{ item.title }}
+         </p>
+         <a (click)="showItemDetails(item)" class="pull-right">
+         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+        </svg>
+      </a>
+      </div>
       </div>
     </div>
   </div>
@@ -22,7 +29,10 @@
   <div class="panel-body">
     <div class="row" *ngIf="selectedItem">
       <div class="col-xs-12">
-        <h5><strong>{{ selectedItem.title }}</strong></h5>
+        <div [ngStyle]="{'background-color': getCategoryColor(selectedItem.category)}" class="category2">
+          <p class="uppercase"> {{ selectedItem.category }}</p>
+        </div>
+        <h4 style="text-align: center;"><strong>{{ selectedItem.title }}</strong></h4>
         <p><strong>Dates:</strong> {{ selectedItem.dateStart | date:'MM/dd/yy' }} - {{ selectedItem.dateEnd | date:'MM/dd/yy' }}</p>
         <p><strong>Times:</strong> {{ selectedItem.startTime }} - {{ selectedItem.endTime }}</p>
         <p><strong>Details:</strong> {{ selectedItem.description }}</p>
@@ -70,6 +80,18 @@
           <div class="form-group">
             <label for="endTime">End Time</label>
             <input [(ngModel)]="newItem.endTime" name="endTime" type="time" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select [(ngModel)]="newItem.category" name="category" class="form-control" required>
+              <option value="" disabled selected>Select a category</option>
+              <option value="travel">Travel</option>
+              <option value="accommodation">Accommodation</option>
+              <option value="activity">Activity</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="other">Other</option>
+            </select>
           </div>
 
           <div class="form-group">

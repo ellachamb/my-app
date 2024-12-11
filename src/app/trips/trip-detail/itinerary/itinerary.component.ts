@@ -23,6 +23,7 @@ export class ItineraryComponent implements OnChanges {
     '', 
     '',
     '',
+    '',
     ''
   );
 
@@ -74,6 +75,7 @@ export class ItineraryComponent implements OnChanges {
         dateEnd: new Date(form.value.dateEnd),
         startTime: form.value.time,
         endTime: form.value.endTime,
+        category: form.value.category,
         description: form.value.description,
         location: form.value.location,
         link: form.value.link
@@ -82,6 +84,7 @@ export class ItineraryComponent implements OnChanges {
       this.showModal = false;
       document.getElementById('closeModalButton2')?.click();
       form.reset();
+      console.log(this.newItem); 
     }
   }
 
@@ -96,4 +99,16 @@ export class ItineraryComponent implements OnChanges {
   private generateId(): string {
     return Math.random().toString(36).substring(2, 9);
   }
+
+  getCategoryColor(category: string): string {
+    switch (category?.toLowerCase()) {
+      case 'travel': return 'navy';
+      case 'accommodation': return 'green';
+      case 'activity': return 'lightcoral';
+      case 'restaurant': return 'lightgoldenrodyellow';
+      case 'other': return 'orange';
+      default: return 'lightgray'; 
+    }
+  }
+  
 }
