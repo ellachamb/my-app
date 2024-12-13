@@ -28,7 +28,7 @@
 
   <div class="panel-body">
     <div class="row" *ngIf="selectedItem">
-      <div class="col-xs-12">
+      <div class="col-xs-12" style="background-color: white; padding: 1rem; border-radius: 5px;">
         <div [ngStyle]="{'background-color': getCategoryColor(selectedItem.category)}" class="category2">
           <p class="uppercase"> {{ selectedItem.category }}</p>
         </div>

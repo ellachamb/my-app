@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Trip } from '../trip.model';
-import { TripsService } from '../trips.service'; 
+import { TripsService } from '../trips.service';
 import { CommonModule } from '@angular/common';
 import { DetailNavComponent } from './detail-nav/detail-nav.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
@@ -23,20 +23,25 @@ export class TripDetailComponent {
     this.selectedFeature = selectedFeature;
   }
 
-  editTrip() {
-    const updatedTrip: Trip = {
-      ...this.trip,
-      destination: prompt('Edit destination:', this.trip.destination) || this.trip.destination,
-      imageUrl: prompt('Edit image URL:', this.trip.imageUrl) || this.trip.imageUrl,
-    };
+  // editTrip() {
+  //   const updatedTrip: Trip = {
+  //     ...this.trip,
+  //     destination: prompt('Edit destination:', this.trip.destination) || this.trip.destination,
+  //     imageUrl: prompt('Edit image URL:', this.trip.imageUrl) || this.trip.imageUrl,
+  //   };
 
-    this.tripsService.updateTrip(this.trip.id, updatedTrip);
-    this.trip = updatedTrip; 
-  }
+  //   this.tripsService.updateTrip(this.trip.id, updatedTrip).subscribe(() => {
+  //     this.trip = updatedTrip;
+  //     location.reload();
+  //   });
+  // }
 
   deleteTrip() {
     if (confirm(`Are you sure you want to delete the trip to ${this.trip.destination}?`)) {
-      this.tripsService.deleteTrip(this.trip.id);
+      this.tripsService.deleteTrip(this.trip).subscribe(() => {
+        console.log('Trip successfully deleted');
+        location.reload(); 
+      });
     }
   }
   
