@@ -1,9 +1,10 @@
 
 <body>
   <app-header (selectedFeatureEvent)="switchView($event)"></app-header>
+  <app-home (selectedFeatureEvent)="switchView($event)" *ngIf="selectedFeature === 'home'"></app-home>
  <div class="container">
     <app-trips *ngIf="selectedFeature === 'trips'"></app-trips>
-    <app-user *ngIf="selectedFeature === 'profile'"></app-user>
+    <app-user *ngIf="selectedFeature === 'profile'"></app-user> 
 </div>
 </body>
 

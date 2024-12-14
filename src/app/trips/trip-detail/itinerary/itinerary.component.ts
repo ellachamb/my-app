@@ -133,7 +133,7 @@ export class ItineraryComponent implements OnChanges, OnInit {
       case 'travel': return 'navy';
       case 'accommodation': return 'green';
       case 'activity': return 'lightcoral';
-      case 'restaurant': return 'lightgoldenrodyellow';
+      case 'restaurant': return 'purple';
       case 'other': return 'orange';
       default: return 'lightgray'; 
     }

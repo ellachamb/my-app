@@ -1,10 +1,15 @@
 .navbar {
     padding: 0 20px;
-    background-color: rgb(233, 234, 240); 
+    background-color: #ffffff;
     border: none; 
   }
   
   .navbar-brand img {
     max-width: 100%;
     height: auto;
+  }
+
+  a:hover {
+    background: #39618E; 
+    transition: 0.2s ease-in-out;
   }
