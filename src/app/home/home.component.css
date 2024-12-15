@@ -71,8 +71,19 @@ a {
     cursor: pointer; 
 }
 
+.category:hover {
+    transform: scale(1.01);
+    transition: 0.2s ease-in-out;
+    filter: brightness(0.8); 
+}
+
 .category img {
     border-radius: 18px; 
+}
+
+.category a {
+    color: white; 
+    text-decoration: none; 
 }
 
 input {
