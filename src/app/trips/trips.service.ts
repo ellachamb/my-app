@@ -36,9 +36,17 @@ export class TripsService {
   
     this.http.get<Trip[]>(url, { headers }).subscribe(
       (trips: Trip[] | null) => {
-        console.log('Fetched trips:', trips); 
-        // Filter out invalid trips
-        this.trips = (trips || []).filter((trip): trip is Trip => trip && typeof trip.id === 'string');
+        console.log('Fetched trips:', trips);
+        this.trips = (trips || []).filter((trip): trip is Trip => {
+          if (trip && typeof trip.id === 'string') {
+            return true;
+          }
+          if (trip && typeof trip.id === 'number') {
+            trip.id = String(trip.id);
+            return true;
+          }
+          return false;
+        });
         this.maxTripId = this.getMaxId();
         this.tripListChangedEvent.next(this.trips.slice());
       },
