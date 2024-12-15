@@ -2,15 +2,16 @@
     <div class="container-fluid" >
       <div class="navbar-header">
         <a href="#" (click)="onSelected('home')" class="navbar-brand">
-            <img src="itinerarylogo.png" alt="logo" class="img-fluid" style="max-width: 300px;" >
+            <img src="itinerarylogo.png" alt="logo" class="img-fluid" style="max-width: 250px;" >
           </a>
       </div>
   
       <div class="collapse navbar-collapse" style="padding: 2rem; font-size: 2rem;" >
         <ul class="nav navbar-nav">
+          <li><a href="#" (click)="onSelected('home')">Home</a></li>
           <li><a href="#" (click)="onSelected('trips')">My Trips</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <!-- <ul class="nav navbar-nav navbar-right">
           <li appDropdown class="dropdown">
             <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
               User <span class="caret"></span>
@@ -22,7 +23,7 @@
               <li><a href="#">Logout</a></li>
             </ul>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>

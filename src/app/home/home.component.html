@@ -3,10 +3,110 @@
     <img src="hero-text.png" class="img-fluid" alt="hero text" style="width: 100%">
     <img src="hero-image.png" class="img-fluid" alt="hero image" style="width: 100%">
 </div>
-<div class="button-div" style="text-align: center; width: 100%;">    
-    <a (click)="onSelected('trips')" class="btn btn-primary" style="font-size: 4rem;">Start Your Itinerary</a>
-</div>
+
 
 <div class="bottom">
+    <div class="bottom-flex">
+    <div>
+        <h1 style="text-align: right;">Create Your Perfect Trip</h1>
+        <p style="text-align: right;">MyItinerary helps you plan your perfect trip. Choose from a variety of cities and activities to create your ideal itinerary.</p>
+        <hr style="border-color: rgb(58, 54, 51);">
+        <ul>
+            <li>Add trips to your dasboard and include custom photos</li>
+            <li>Add itinerary items to each date for different categories</li>
+            <li>Categories include food, experiences, accomodations, and travel</li>
+            <li>Task list for each trip to help make your trip preparation easier</li>
+        </ul>
+        <div class="button-div" style="text-align: center; width: 100%; margin: 2rem 0;">    
+            <a (click)="onSelected('trips')" class="btn btn-primary" style="font-size: 2rem;">Start Your Itinerary</a>
+        </div> 
+    </div>
+    <div>
+        <img src="examples.png" class="img-fluid" alt="example screen" style="width: 100%">
+    </div>
+    </div>
+    
     
 </div>
+
+
+<div class="categories">
+    <h1>Find your travel inspiration</h1>
+    <div class="category-div">
+        <div class="category">
+            <img src="adventure.jpg" alt="outdoors" class="img-fluid" style="width: 100%; margin: 0;">
+            <h3>Outdoor Adventures</h3>
+        </div>
+        <div class="category">
+            <img src="cultural.jpg" alt="japan" class="img-fluid" style="width: 100%; margin: 0;">
+            <h3>Cultural Immersions</h3>
+        </div>
+    <div class="category">
+        <img src="historic.jpg" alt="art" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>Historic Wonders</h3>
+    </div>
+    <div class="category">
+        <img src="beach.jpg" alt="beach" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>Beach Escapes</h3>
+    </div>
+    <div class="category">
+        <img src="peaceful.jpg" alt="scenery" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>Scenic Getaways</h3>
+    </div>
+    <div class="category">
+        <img src="city.jpg" alt="city" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>City Explorers</h3>
+    </div>
+    
+    <div class="category">
+        <img src="luxury.jpg" alt="retreat" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>Peaceful Retreats</h3>
+    </div>
+    
+    <div class="category">
+        <img src="foodie.jpg" alt="restaurant" class="img-fluid" style="width: 100%; margin: 0;">
+        <h3>Foodie Adventures</h3>
+    </div>
+    </div>
+</div>
+
+<div class="bottom1">
+    <div class="text">
+        <h1>Get Travel Inspiration Straight to Your Inbox</h1>
+        <p>Enter your email to be apart of the MyItinerary Travel Club!</p>
+        <input type="text" placeholder="Email"><button>Join</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">  
+      <div class="footer-section links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><strong>Email:</strong> myitinerary&#64;gmail.com</li>
+          <li><strong>Phone:</strong> (123) 456-7890</li>
+        </ul>
+      </div>
+  
+      <div class="footer-section social">
+        <h4>Follow Us</h4>
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2024 MyItinerary. All rights reserved.</p>
+    </div>
+</footer>
