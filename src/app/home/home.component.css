@@ -86,6 +86,39 @@ a {
     text-decoration: none; 
 }
 
+.articles {
+    display: grid; 
+    grid-gap: 1rem;
+    grid-template-columns: 1.2fr 1fr; 
+    padding: 2rem; 
+}
+
+.articles img {
+    border-radius: 20px; 
+}
+
+.article-flex img {
+    margin-bottom: 1rem; 
+}
+
+#article-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 1rem; 
+}
+
+#article-flex2{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 1rem; 
+}
+
+#article-flex3{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 1rem; 
+}
+
 input {
     padding: .5rem; 
     margin: .5rem; 
