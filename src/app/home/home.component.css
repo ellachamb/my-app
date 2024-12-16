@@ -119,6 +119,16 @@ a {
     grid-gap: 1rem; 
 }
 
+.media {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+}
+
+#insta:hover {
+    transition: 0.2s ease-in-out;
+    filter: brightness(0.8); 
+}
+
 input {
     padding: .5rem; 
     margin: .5rem; 
